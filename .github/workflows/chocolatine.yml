@@ -1,0 +1,14 @@
+name: Chocolatine CI
+
+on: [push]
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-lastest
+    container: ghcr.io/epitech/coding-style-checker:latest
+    steps:
+      - name: fetch repository content
+        uses: actions/checkout@v4.1.1
+
+      - name: run script
+        run: check.sh $(pwd) $(pwd)
+
